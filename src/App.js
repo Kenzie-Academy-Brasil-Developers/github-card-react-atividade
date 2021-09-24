@@ -1,6 +1,7 @@
 import './App.css'
 import { useState } from 'react'
 import RepoCards from './components/RepoCards'
+import { TextField, Box, Button } from '@material-ui/core'
 
 function App() {
 	const [gitRepos, setGitRepos] = useState([])
@@ -16,14 +17,26 @@ function App() {
 	return (
 		<div className='App'>
 			<header className='App-header'>
-				<div>
-					<input
+				<Box
+					component='form'
+					sx={{
+						'& > :not(style)': { m: 1, width: '25ch' },
+					}}
+					noValidate
+					autoComplete='off'
+				>
+					<TextField
 						value={input}
 						placeholder='Pesquise um repositório'
+						variant='standard'
+						color='warning'
+						focused
 						onChange={(e) => setInput(e.target.value)}
 					/>
-					<button onClick={getReposFromAPI}>Pesquisar</button>
-				</div>
+					<Button variant='contained' onClick={getReposFromAPI}>
+						Pesquisar
+					</Button>
+				</Box>
 				<RepoCards repos={gitRepos} />
 			</header>
 		</div>

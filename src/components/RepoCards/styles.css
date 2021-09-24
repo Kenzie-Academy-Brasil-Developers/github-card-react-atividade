@@ -1,0 +1,12 @@
+section {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: stretch;
+}
+
+section > div {
+	margin-left: 20px;
+	margin-top: 20px;
+}
